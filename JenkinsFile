@@ -27,17 +27,15 @@ stage ('testing')
          bat = "${mvnHome}/bin/mvn test"
 
      }
-        stage('build')
-         {
-              echo 'before compiling'
 
-             def mvnHome = tool name: 'maven_3_6_3', type: 'maven'
+       stage('results') {
+             
+                 archiveArtifacts artifacts: 'target/surefire-reports/**/*.jar', fingerprint: true
 
-             echo "${mvnHome}"
-                     bat = "${mvnHome}/bin/mvn package"
-                     echo 'after compiling'
+                 junit 'target/surefire-reports/**/*.xml'
 
-          }
+         }
+
 
 
 
