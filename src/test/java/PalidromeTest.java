@@ -15,7 +15,7 @@ public class PalidromeTest extends TestCase {
     public void testCheckPalidrome2() {
 
         Palidrome pl = new Palidrome();
-        pl.setText("MOM");
+        pl.setText("Mom");
         assertEquals(true,pl.checkPalidrome());
 
 
