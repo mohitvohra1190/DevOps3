@@ -21,6 +21,12 @@ node
 
      }
 
+stage ('testing')
+     {
+         def mvnHome = tool name: 'maven_3_6_3', type: 'maven'
+         bat = "${mvnHome}/bin/mvn test"
+
+     }
         stage('build')
          {
               echo 'before compiling'
@@ -33,12 +39,7 @@ node
 
           }
 
-     stage ('testing')
-     {
-         def mvnHome = tool name: 'maven_3_6_3', type: 'maven'
-         bat = "${mvnHome}/bin/mvn test"
-        
-     }
+
 
 
 
