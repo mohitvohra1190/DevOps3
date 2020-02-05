@@ -29,10 +29,27 @@ stage ('testing')
      }
 
        stage('results') {
-             
-                 archiveArtifacts artifacts: 'target/surefire-reports/**/*.jar', fingerprint: true
 
-                 junit 'target/surefire-reports/**/*.xml'
+                def export = {
+                  // create a new file
+                  FileOutputStream out = new FileOutputStream("workbook.xls");
+                  // create a new workbook
+                  Workbook wb = new HSSFWorkbook();
+                  // create a new sheet
+                  Sheet s = wb.createSheet();
+
+                  int rownum = 0
+                  for (ClaimDocumentReferenceDTO ref : docRefs) {
+                    // create a row
+                    Row r = s.createRow(rownum++)
+                    for (int cellnum=0; cellnum <10; cellnum++) {
+                      Cell c = r.createCell(cellnum);
+                      c.setCellValue( "Test" );
+                    }
+                  }
+                  wb.write(out);
+                  out.close();
+                }
 
          }
 
