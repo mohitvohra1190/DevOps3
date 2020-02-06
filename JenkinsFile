@@ -23,8 +23,12 @@ node
 
      }
 
+    stage('reulst')
+    {
+    def mvnHome = tool name: 'maven_3_6_3', type: 'maven'
+ bat = '${mvnHome}/bin/mvn exec:java -Dexec.mainClass="Main" '
 
-
+}
 
 
 
