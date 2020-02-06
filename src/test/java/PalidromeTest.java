@@ -5,7 +5,7 @@ public class PalidromeTest extends TestCase {
     public void testCheckPalidrome1() {
 
         Palidrome pl = new Palidrome();
-        pl.setText("Level");
+        pl.setText("level");
         System.out.println("inside test1");
         assertEquals(true,pl.checkPalidrome());
 
@@ -15,7 +15,7 @@ public class PalidromeTest extends TestCase {
     public void testCheckPalidrome2() {
 
         Palidrome pl = new Palidrome();
-        pl.setText("Mom");
+        pl.setText("mom");
         assertEquals(true,pl.checkPalidrome());
 
 
@@ -24,7 +24,7 @@ public class PalidromeTest extends TestCase {
     public void testCheckPalidrome3() {
 
         Palidrome pl = new Palidrome();
-        pl.setText("Radar");
+        pl.setText("radar");
         assertEquals(true,pl.checkPalidrome());
 
 
